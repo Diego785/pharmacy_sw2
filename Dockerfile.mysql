@@ -1,0 +1,16 @@
+# Use the official MySQL image as the base
+FROM mysql:latest
+
+# Set environment variables (customize as needed)
+ENV MYSQL_ROOT_PASSWORD=1234
+ENV MYSQL_DATABASE=pharmacy_sw2
+ENV MYSQL_USER=diegohv
+ENV MYSQL_PASSWORD=1234
+
+# Expose the MySQL port (optional)
+EXPOSE 3306
+
+# You can add additional configuration or scripts if needed
+# COPY custom.cnf /etc/mysql/conf.d/custom.cnf
+
+# The MySQL image will automatically start the MySQL server, so no CMD needed
