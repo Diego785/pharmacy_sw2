@@ -1,0 +1,21 @@
+FROM php:7.4-fpm
+
+# Install necessary extensions
+RUN apt-get update && apt-get install -y libpq-dev libzip-dev libgd-dev \
+    && docker-php-ext-install pdo pdo_mysql bcmath zip gd
+
+# Set the memory limit for PHP (adjust as needed)
+RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/memory-limit.ini
+
+# Install Composer globally
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
+# Set the working directory in the container
+WORKDIR /var/www/html
+
+# Expose the port for communication (documentative, doesn't publish)
+EXPOSE 9000
+
+# The CMD should be set to run PHP-FPM (it's correct)
+CMD ["php-fpm"]
