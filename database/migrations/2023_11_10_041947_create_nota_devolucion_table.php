@@ -14,11 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('nota_devolucion', function (Blueprint $table) {
+            $table->id();
             $table->string('motivo', 30);
             $table->timestamp('fecha_dev');
-            $table->integer('nota_devolucionID')->primary();
-            $table->integer('detalle_Nota_DevID')->index('detalle_Nota_DevID');
-            $table->integer('facturaID')->index('facturaID');
+            $table->unsignedBigInteger('facturaID')->index('facturaID');
         });
     }
 

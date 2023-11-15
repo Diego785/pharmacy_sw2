@@ -7,41 +7,36 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class NotaBaja
  * 
+ * @property int $id
  * @property Carbon $fecha_dada_baja
  * @property string $motivo
- * @property int $nota_BajaID
- * @property int $detalle_Nota_BajaID
  * 
- * @property DetalleNotaBaja $detalle_nota_baja
+ * @property Collection|DetalleNotaBaja[] $detalle_nota_bajas
  *
  * @package App\Models
  */
 class NotaBaja extends Model
 {
 	protected $table = 'nota_baja';
-	protected $primaryKey = 'nota_BajaID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'fecha_dada_baja' => 'datetime',
-		'nota_BajaID' => 'int',
-		'detalle_Nota_BajaID' => 'int'
+		'fecha_dada_baja' => 'datetime'
 	];
 
 	protected $fillable = [
 		'fecha_dada_baja',
-		'motivo',
-		'detalle_Nota_BajaID'
+		'motivo'
 	];
 
-	public function detalle_nota_baja()
+	public function detalle_nota_bajas()
 	{
-		return $this->belongsTo(DetalleNotaBaja::class, 'detalle_Nota_BajaID');
+		return $this->hasMany(DetalleNotaBaja::class, 'bajaID');
 	}
 }

@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Producto
  * 
+ * @property int $id
  * @property string $nombre_producto
  * @property string $descripcion
  * @property float $precio_venta
@@ -22,11 +23,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $adicional
  * @property Carbon $fecha_vencimiento
  * @property int $existencia_minimo
- * @property int $productoID
  * @property int $categoriaID
  * 
  * @property Categorium $categorium
- * @property Collection|DetalleFactura[] $detalle_facturas
+ * @property DetalleFactura $detalle_factura
  * @property Collection|DetalleInventario[] $detalle_inventarios
  * @property Collection|DetalleNotaBaja[] $detalle_nota_bajas
  * @property Collection|DetalleNotaDev[] $detalle_nota_devs
@@ -37,8 +37,6 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
 	protected $table = 'producto';
-	protected $primaryKey = 'productoID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
@@ -46,7 +44,6 @@ class Producto extends Model
 		'cantidad_stock' => 'int',
 		'fecha_vencimiento' => 'datetime',
 		'existencia_minimo' => 'int',
-		'productoID' => 'int',
 		'categoriaID' => 'int'
 	];
 
@@ -68,9 +65,9 @@ class Producto extends Model
 		return $this->belongsTo(Categorium::class, 'categoriaID');
 	}
 
-	public function detalle_facturas()
+	public function detalle_factura()
 	{
-		return $this->hasMany(DetalleFactura::class, 'productoID');
+		return $this->hasOne(DetalleFactura::class, 'productoID');
 	}
 
 	public function detalle_inventarios()

@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('detalle_factura', function (Blueprint $table) {
-            $table->foreign(['productoID'], 'FK_Detalle_Factura_Producto')->references(['productoID'])->on('producto')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['productoID'], 'FK_Detalle_Factura_Producto')->references(['id'])->on('producto')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['facturaID'], 'FK_Detalle_Factura_Factura')->references(['id'])->on('factura')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('detalle_factura', function (Blueprint $table) {
             $table->dropForeign('FK_Detalle_Factura_Producto');
+            $table->dropForeign('FK_Detalle_Factura_Factura');
         });
     }
 };

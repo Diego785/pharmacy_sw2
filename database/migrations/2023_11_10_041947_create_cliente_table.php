@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cliente', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre', 50);
             $table->timestamp('fecha_nac');
             $table->integer('ci');
-            $table->integer('clienteID')->primary();
+
         });
     }
 

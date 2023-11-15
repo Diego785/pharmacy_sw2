@@ -12,10 +12,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Proveedor
  * 
+ * @property int $id
  * @property string $nombre
  * @property int $telefono
  * @property string $email
- * @property int $proveedorID
  * 
  * @property Collection|DetalleInventario[] $detalle_inventarios
  * @property Collection|DetallePedido[] $detalle_pedidos
@@ -25,13 +25,10 @@ use Illuminate\Database\Eloquent\Model;
 class Proveedor extends Model
 {
 	protected $table = 'proveedor';
-	protected $primaryKey = 'proveedorID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'telefono' => 'int',
-		'proveedorID' => 'int'
+		'telefono' => 'int'
 	];
 
 	protected $fillable = [

@@ -6,13 +6,15 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+ 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
         @livewireStyles
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+        <link href="https://cdn.tailwindcss.com" rel="stylesheet">
         <script src="{{ mix('js/app.js') }}"></script>
 
         <!-- Scripts -->
@@ -33,9 +35,12 @@
                 </header>
             @endif
 
+           
             <!-- Page Content -->
             <main>
+            @include('layouts.sidebar')
                 {{ $slot }}
+                
             </main>
         </div>
 

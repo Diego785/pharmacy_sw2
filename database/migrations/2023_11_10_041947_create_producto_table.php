@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('producto', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre_producto', 50);
             $table->string('descripcion', 50);
             $table->double('precio_venta');
@@ -23,8 +24,7 @@ return new class extends Migration
             $table->string('adicional', 50);
             $table->timestamp('fecha_vencimiento');
             $table->integer('existencia_minimo');
-            $table->integer('productoID')->primary();
-            $table->integer('categoriaID')->index('categoriaID');
+            $table->unsignedBigInteger('categoriaID')->index('categoriaID');
         });
     }
 

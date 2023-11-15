@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Categorium
  * 
+ * @property int $id
  * @property string $nombre
- * @property int $categoriaID
  * 
  * @property Collection|Producto[] $productos
  *
@@ -22,13 +22,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categorium extends Model
 {
 	protected $table = 'categoria';
-	protected $primaryKey = 'categoriaID';
-	public $incrementing = false;
 	public $timestamps = false;
-
-	protected $casts = [
-		'categoriaID' => 'int'
-	];
 
 	protected $fillable = [
 		'nombre'

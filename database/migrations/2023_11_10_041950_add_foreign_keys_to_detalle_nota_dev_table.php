@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('detalle_nota_dev', function (Blueprint $table) {
-            $table->foreign(['productoID'], 'FK_Detalle_Nota_Dev_Producto')->references(['productoID'])->on('producto')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['productoID'], 'FK_Detalle_Nota_Dev_Producto')->references(['id'])->on('producto')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['notadevID'], 'FK_Detalle_Nota_Dev_Dev')->references(['id'])->on('nota_devolucion')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('detalle_nota_dev', function (Blueprint $table) {
             $table->dropForeign('FK_Detalle_Nota_Dev_Producto');
+            $table->dropForeign('FK_Detalle_Nota_Dev_Dev');
         });
     }
 };

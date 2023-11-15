@@ -7,31 +7,29 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class DetalleInventario
  * 
+ * @property int $id
  * @property int $cantidad
  * @property int $numero_lote
  * @property float $precio_compra
  * @property Carbon $fecha_venc_lote
- * @property int $detalle_InventarioID
  * @property int $proveedorID
  * @property int $productoID
+ * @property int $inventarioID
  * 
+ * @property Inventario $inventario
  * @property Producto $producto
  * @property Proveedor $proveedor
- * @property Collection|Inventario[] $inventarios
  *
  * @package App\Models
  */
 class DetalleInventario extends Model
 {
 	protected $table = 'detalle_inventario';
-	protected $primaryKey = 'detalle_InventarioID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
@@ -39,9 +37,9 @@ class DetalleInventario extends Model
 		'numero_lote' => 'int',
 		'precio_compra' => 'float',
 		'fecha_venc_lote' => 'datetime',
-		'detalle_InventarioID' => 'int',
 		'proveedorID' => 'int',
-		'productoID' => 'int'
+		'productoID' => 'int',
+		'inventarioID' => 'int'
 	];
 
 	protected $fillable = [
@@ -50,8 +48,14 @@ class DetalleInventario extends Model
 		'precio_compra',
 		'fecha_venc_lote',
 		'proveedorID',
-		'productoID'
+		'productoID',
+		'inventarioID'
 	];
+
+	public function inventario()
+	{
+		return $this->belongsTo(Inventario::class, 'inventarioID');
+	}
 
 	public function producto()
 	{
@@ -61,10 +65,5 @@ class DetalleInventario extends Model
 	public function proveedor()
 	{
 		return $this->belongsTo(Proveedor::class, 'proveedorID');
-	}
-
-	public function inventarios()
-	{
-		return $this->hasMany(Inventario::class, 'detalle_InventarioID');
 	}
 }

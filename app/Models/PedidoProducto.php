@@ -13,12 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class PedidoProducto
  * 
+ * @property int $id
  * @property Carbon $fecha_pedido
  * @property float $total
- * @property int $pedido_ProductoID
- * @property int $detalle_PedidoID
  * 
- * @property DetallePedido $detalle_pedido
+ * @property Collection|DetallePedido[] $detalle_pedidos
  * @property Collection|Notificacion[] $notificacions
  *
  * @package App\Models
@@ -26,26 +25,21 @@ use Illuminate\Database\Eloquent\Model;
 class PedidoProducto extends Model
 {
 	protected $table = 'pedido_producto';
-	protected $primaryKey = 'pedido_ProductoID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
 		'fecha_pedido' => 'datetime',
-		'total' => 'float',
-		'pedido_ProductoID' => 'int',
-		'detalle_PedidoID' => 'int'
+		'total' => 'float'
 	];
 
 	protected $fillable = [
 		'fecha_pedido',
-		'total',
-		'detalle_PedidoID'
+		'total'
 	];
 
-	public function detalle_pedido()
+	public function detalle_pedidos()
 	{
-		return $this->belongsTo(DetallePedido::class, 'detalle_PedidoID');
+		return $this->hasMany(DetallePedido::class, 'pedidoID');
 	}
 
 	public function notificacions()

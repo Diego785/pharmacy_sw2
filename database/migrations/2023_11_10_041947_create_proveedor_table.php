@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('proveedor', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre', 30);
             $table->integer('telefono');
             $table->string('email', 50);
-            $table->integer('proveedorID')->primary();
+           
         });
     }
 

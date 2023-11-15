@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('notificacion', function (Blueprint $table) {
+            $table->id();
             $table->string('encabezado', 30);
             $table->string('mensaje', 70);
             $table->timestamp('fecha_hora');
-            $table->integer('notificacionID')->primary();
-            $table->integer('pedido_ProductoID')->index('pedido_ProductoID');
+            $table->unsignedBigInteger('pedido_ProductoID')->index('pedido_ProductoID');
             $table->unsignedBigInteger('usuarioID')->index('id');
         });
     }

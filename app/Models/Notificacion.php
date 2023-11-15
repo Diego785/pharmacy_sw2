@@ -12,10 +12,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Notificacion
  * 
+ * @property int $id
  * @property string $encabezado
  * @property string $mensaje
  * @property Carbon $fecha_hora
- * @property int $notificacionID
  * @property int $pedido_ProductoID
  * @property int $usuarioID
  * 
@@ -27,13 +27,10 @@ use Illuminate\Database\Eloquent\Model;
 class Notificacion extends Model
 {
 	protected $table = 'notificacion';
-	protected $primaryKey = 'notificacionID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
 		'fecha_hora' => 'datetime',
-		'notificacionID' => 'int',
 		'pedido_ProductoID' => 'int',
 		'usuarioID' => 'int'
 	];

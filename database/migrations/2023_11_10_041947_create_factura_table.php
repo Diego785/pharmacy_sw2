@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('factura', function (Blueprint $table) {
-            $table->integer('facturaID')->primary();
+            $table->id();
             $table->integer('nit');
             $table->timestamp('fecha');
             $table->double('total');
@@ -22,8 +22,7 @@ return new class extends Migration
             $table->double('descuento');
             $table->double('subtotal');
             $table->string('nota', 30);
-            $table->integer('clienteID')->index('clienteID');
-            $table->integer('detalle_FacturaID')->index('detalle_FacturaID');
+            $table->unsignedBigInteger('clienteID')->index('clienteID');
             $table->unsignedBigInteger('usuarioID')->index('usuarioID');
         });
     }

@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('nota_baja', function (Blueprint $table) {
+            $table->id();
             $table->timestamp('fecha_dada_baja');
             $table->string('motivo', 30);
-            $table->integer('nota_BajaID')->primary();
-            $table->integer('detalle_Nota_BajaID')->index('detalle_Nota_BajaID');
+
         });
     }
 

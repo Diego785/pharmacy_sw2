@@ -13,10 +13,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Cliente
  * 
+ * @property int $id
  * @property string $nombre
  * @property Carbon $fecha_nac
  * @property int $ci
- * @property int $clienteID
  * 
  * @property Collection|Factura[] $facturas
  *
@@ -25,14 +25,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
 	protected $table = 'cliente';
-	protected $primaryKey = 'clienteID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
 		'fecha_nac' => 'datetime',
-		'ci' => 'int',
-		'clienteID' => 'int'
+		'ci' => 'int'
 	];
 
 	protected $fillable = [

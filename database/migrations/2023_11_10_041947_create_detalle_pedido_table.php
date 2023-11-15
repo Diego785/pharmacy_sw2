@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('detalle_pedido', function (Blueprint $table) {
+            $table->id();
             $table->integer('cantidad');
             $table->double('precio');
-            $table->integer('detalle_PedidoID')->primary();
-            $table->integer('proveedorID')->index('proveedorID');
-            $table->integer('productoID')->index('productoID');
+            $table->unsignedBigInteger('proveedorID')->index('proveedorID');
+            $table->unsignedBigInteger('productoID')->index('productoID');
+            $table->unsignedBigInteger('pedidoID')->index('pedidoID');
         });
     }
 

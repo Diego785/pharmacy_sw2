@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Factura
  * 
- * @property int $facturaID
+ * @property int $id
  * @property int $nit
  * @property Carbon $fecha
  * @property float $total
@@ -22,12 +22,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $subtotal
  * @property string $nota
  * @property int $clienteID
- * @property int $detalle_FacturaID
  * @property int $usuarioID
  * 
  * @property Cliente $cliente
- * @property DetalleFactura $detalle_factura
  * @property User $user
+ * @property DetalleFactura $detalle_factura
  * @property Collection|NotaDevolucion[] $nota_devolucions
  *
  * @package App\Models
@@ -35,12 +34,9 @@ use Illuminate\Database\Eloquent\Model;
 class Factura extends Model
 {
 	protected $table = 'factura';
-	protected $primaryKey = 'facturaID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'facturaID' => 'int',
 		'nit' => 'int',
 		'fecha' => 'datetime',
 		'total' => 'float',
@@ -48,7 +44,6 @@ class Factura extends Model
 		'descuento' => 'float',
 		'subtotal' => 'float',
 		'clienteID' => 'int',
-		'detalle_FacturaID' => 'int',
 		'usuarioID' => 'int'
 	];
 
@@ -61,7 +56,6 @@ class Factura extends Model
 		'subtotal',
 		'nota',
 		'clienteID',
-		'detalle_FacturaID',
 		'usuarioID'
 	];
 
@@ -70,14 +64,14 @@ class Factura extends Model
 		return $this->belongsTo(Cliente::class, 'clienteID');
 	}
 
-	public function detalle_factura()
-	{
-		return $this->belongsTo(DetalleFactura::class, 'detalle_FacturaID');
-	}
-
 	public function user()
 	{
 		return $this->belongsTo(User::class, 'usuarioID');
+	}
+
+	public function detalle_factura()
+	{
+		return $this->hasOne(DetalleFactura::class, 'facturaID');
 	}
 
 	public function nota_devolucions()

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('notificacion', function (Blueprint $table) {
-            $table->foreign(['pedido_ProductoID'], 'FK_Notificacion_Pedido_Producto')->references(['pedido_ProductoID'])->on('pedido_producto')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['pedido_ProductoID'], 'FK_Notificacion_Pedido_Producto')->references(['id'])->on('pedido_producto')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['usuarioID'], 'FK_Notificacion_Users')->references(['id'])->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }

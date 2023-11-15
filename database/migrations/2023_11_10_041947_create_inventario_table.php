@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('inventario', function (Blueprint $table) {
+            $table->id();
             $table->timestamp('fecha_ingreso');
             $table->integer('cantidad_ingresada');
             $table->double('total_costo');
-            $table->integer('inventarioID')->primary();
-            $table->integer('detalle_InventarioID')->index('detalle_InventarioID');
+
         });
     }
 

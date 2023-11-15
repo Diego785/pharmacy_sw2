@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('pedido_producto', function (Blueprint $table) {
-            $table->foreign(['detalle_PedidoID'], 'FK_Pedido_Producto_Detalle_Pedido')->references(['detalle_PedidoID'])->on('detalle_pedido')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('pedido_producto', function (Blueprint $table) {
-            $table->dropForeign('FK_Pedido_Producto_Detalle_Pedido');
+            
         });
     }
 };

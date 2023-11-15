@@ -14,10 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pedido_producto', function (Blueprint $table) {
+            $table->id();
             $table->timestamp('fecha_pedido');
             $table->double('total');
-            $table->integer('pedido_ProductoID')->primary();
-            $table->integer('detalle_PedidoID')->index('detalle_PedidoID');
         });
     }
 

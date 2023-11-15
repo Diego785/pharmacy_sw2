@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('detalle_factura', function (Blueprint $table) {
+      
             $table->integer('cantidad');
             $table->double('subtotal');
             $table->double('precio_u');
-            $table->integer('detalle_FacturaID')->primary();
-            $table->integer('productoID')->index('productoID');
+            $table->unsignedBigInteger('productoID')->index('productoID');
+            $table->unsignedBigInteger('facturaID')->index('facturaID');
         });
     }
 

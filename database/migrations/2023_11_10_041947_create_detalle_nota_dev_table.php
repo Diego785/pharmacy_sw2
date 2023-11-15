@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('detalle_nota_dev', function (Blueprint $table) {
+            $table->id();
             $table->integer('cantidad');
             $table->string('observacion', 50);
-            $table->integer('detalle_Nota_DevID')->primary();
-            $table->integer('productoID')->index('productoID');
+            $table->unsignedBigInteger('productoID')->index('productoID');
+            $table->unsignedBigInteger('notadevID')->index('notadevID');
         });
     }
 
