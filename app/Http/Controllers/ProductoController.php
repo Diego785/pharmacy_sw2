@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorium;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,9 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::paginate();
+        $categorias = Categorium::pluck('nombre', 'id');
 
-        return view('producto.index', compact('productos'))
+        return view('producto.index', compact('productos','categorias'))
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
 
@@ -73,8 +75,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
-
-        return view('producto.edit', compact('producto'));
+        $categorias = Categorium::pluck('nombre', 'id'); 
+        return view('producto.edit', compact('producto','categorias'));
     }
 
     /**

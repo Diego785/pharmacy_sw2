@@ -55,7 +55,7 @@ Route::resource('productos', ProductoController::class);
 Route::resource('proveedors', ProveedorController::class);
 Route::resource('clientes', ClienteController::class);
 Route::resource('detalle-facturas', DetalleFacturaController::class);
-Route::resource('inventarios', DetalleInventarioController::class);
+Route::resource('detalle-inventarios', DetalleInventarioController::class);
 Route::resource('facturas', FacturaController::class);
 Route::resource('detalle-nota-devs', DetalleNotaDevController::class);
 Route::resource('detalle-nota-bajas', DetalleNotaBajaController::class);

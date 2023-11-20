@@ -36,13 +36,15 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Cantidad</th>
+										
 										<th>Numero Lote</th>
+                                        <th>Cantidad</th>
 										<th>Precio Compra</th>
+                                        <th>Total</th>
 										<th>Fecha Venc Lote</th>
-										<th>Proveedorid</th>
-										<th>Productoid</th>
-										<th>Inventarioid</th>
+										<th>Proveedor</th>
+										<th>Producto</th>
+										<th>Inventario</th>
 
                                         <th></th>
                                     </tr>
@@ -52,9 +54,11 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $detalleInventario->cantidad }}</td>
+											
 											<td>{{ $detalleInventario->numero_lote }}</td>
+                                            <td>{{ $detalleInventario->cantidad }}</td>
 											<td>{{ $detalleInventario->precio_compra }}</td>
+                                            <td>{{ $detalleInventario->total }}</td>
 											<td>{{ $detalleInventario->fecha_venc_lote }}</td>
 											<td>{{ $detalleInventario->proveedorID }}</td>
 											<td>{{ $detalleInventario->productoID }}</td>
@@ -66,7 +70,7 @@
                                                     <a class="btn btn-sm btn-success" href="{{ route('detalle-inventarios.edit',$detalleInventario->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn" style="background-color: brown;border:1px "><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

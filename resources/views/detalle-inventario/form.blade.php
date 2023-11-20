@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('fecha_venc_lote') }}
-            {{ Form::text('fecha_venc_lote', $detalleInventario->fecha_venc_lote, ['class' => 'form-control' . ($errors->has('fecha_venc_lote') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Venc Lote']) }}
+            {{ Form::date('fecha_venc_lote', $detalleInventario->fecha_venc_lote, ['class' => 'form-control' . ($errors->has('fecha_venc_lote') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Venc Lote']) }}
             {!! $errors->first('fecha_venc_lote', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -39,6 +39,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button class="btn btn-sm btn-primary"><i class="fa fa-fw fa-eye"></i>{{ __('Submit') }}</button>
     </div>
 </div>

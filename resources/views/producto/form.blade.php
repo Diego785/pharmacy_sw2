@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 <div class="box box-info padding-1">
     <div class="box-body">
         
@@ -38,7 +39,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('fecha_vencimiento') }}
-            {{ Form::text('fecha_vencimiento', $producto->fecha_vencimiento, ['class' => 'form-control' . ($errors->has('fecha_vencimiento') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Vencimiento']) }}
+            {{ Form::date('fecha_vencimiento', $producto->fecha_vencimiento, ['class' => 'form-control' . ($errors->has('fecha_vencimiento') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Vencimiento']) }}
             {!! $errors->first('fecha_vencimiento', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -47,13 +48,14 @@
             {!! $errors->first('existencia_minimo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('categoriaID') }}
-            {{ Form::text('categoriaID', $producto->categoriaID, ['class' => 'form-control' . ($errors->has('categoriaID') ? ' is-invalid' : ''), 'placeholder' => 'Categoriaid']) }}
-            {!! $errors->first('categoriaID', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+    {{ Form::label('categoriaID', 'Categoria') }}
+    {{ Form::select('categoriaID', $categorias, $producto->categoriaID, ['class' => 'form-control' . ($errors->has('categoriaID') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona una categoría']) }}
+    {!! $errors->first('categoriaID', '<div class="invalid-feedback">:message</div>') !!}
+</div>
+
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button class="btn btn-sm btn-primary"><i class="fa fa-fw fa-eye"></i>{{ __('Submit') }}</button>
     </div>
 </div>

@@ -15,13 +15,11 @@ return new class extends Migration
     {
         Schema::create('factura', function (Blueprint $table) {
             $table->id();
-            $table->integer('nit');
+            $table->bigInteger('nit');
             $table->timestamp('fecha');
             $table->double('total');
-            $table->double('impuesto');
-            $table->double('descuento');
-            $table->double('subtotal');
             $table->string('nota', 30);
+            $table->char('tipo');
             $table->unsignedBigInteger('clienteID')->index('clienteID');
             $table->unsignedBigInteger('usuarioID')->index('usuarioID');
         });

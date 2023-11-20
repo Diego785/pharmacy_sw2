@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('producto', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_producto', 50);
-            $table->string('descripcion', 50);
+            $table->string('nombre_producto', 255);
+            $table->string('descripcion', 500);
             $table->double('precio_venta');
             $table->integer('cantidad_stock');
             $table->string('cod_barra', 20);
             $table->string('imagen', 50);
-            $table->string('adicional', 50);
+            $table->string('adicional', 255);
             $table->timestamp('fecha_vencimiento');
             $table->integer('existencia_minimo');
             $table->unsignedBigInteger('categoriaID')->index('categoriaID');

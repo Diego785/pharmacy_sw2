@@ -57,7 +57,7 @@ class Producto extends Model
 		'adicional',
 		'fecha_vencimiento',
 		'existencia_minimo',
-		'categoriaID'
+		'categoriaID',
 	];
 
 	public function categorium()

@@ -17,10 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $nit
  * @property Carbon $fecha
  * @property float $total
- * @property float $impuesto
- * @property float $descuento
- * @property float $subtotal
  * @property string $nota
+ * @property string $tipo
  * @property int $clienteID
  * @property int $usuarioID
  * 
@@ -40,9 +38,6 @@ class Factura extends Model
 		'nit' => 'int',
 		'fecha' => 'datetime',
 		'total' => 'float',
-		'impuesto' => 'float',
-		'descuento' => 'float',
-		'subtotal' => 'float',
 		'clienteID' => 'int',
 		'usuarioID' => 'int'
 	];
@@ -51,10 +46,8 @@ class Factura extends Model
 		'nit',
 		'fecha',
 		'total',
-		'impuesto',
-		'descuento',
-		'subtotal',
 		'nota',
+		'tipo',
 		'clienteID',
 		'usuarioID'
 	];

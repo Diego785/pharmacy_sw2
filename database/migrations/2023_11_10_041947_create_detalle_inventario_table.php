@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('detalle_inventario', function (Blueprint $table) {
             $table->id();
+            $table->string('numero_lote');
             $table->integer('cantidad');
-            $table->integer('numero_lote');
             $table->double('precio_compra');
+            $table->double('total');
             $table->timestamp('fecha_venc_lote');
             $table->unsignedBigInteger('proveedorID')->index('proveedorID');
             $table->unsignedBigInteger('productoID')->index('productoID');
             $table->unsignedBigInteger('inventarioID')->index('inventarioID');
+            
         });
     }
 

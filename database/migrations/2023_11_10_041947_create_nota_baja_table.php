@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('nota_baja', function (Blueprint $table) {
             $table->id();
             $table->timestamp('fecha_dada_baja');
-            $table->string('motivo', 30);
+            $table->string('motivo', 255);
 
         });
     }

@@ -87,6 +87,10 @@
                                     Productos</a>
                             </li>
                             <li>
+                                <a href="{{ URL::to('categoria') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
+                                    Categoria</a>
+                            </li>
+                            <li>
                                 <a href="{{ URL::to('inventarios') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
                                     Inventario</a>
                             </li>
