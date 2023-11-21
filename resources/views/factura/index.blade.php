@@ -39,12 +39,10 @@
 										<th>Nit</th>
 										<th>Fecha</th>
 										<th>Total</th>
-										<th>Impuesto</th>
-										<th>Descuento</th>
-										<th>Subtotal</th>
+										<th>Recetas</th>
 										<th>Nota</th>
-										<th>Clienteid</th>
-										<th>Usuarioid</th>
+										<th>Cliente</th>
+										<th>Usuario</th>
 
                                         <th></th>
                                     </tr>
@@ -57,12 +55,10 @@
 											<td>{{ $factura->nit }}</td>
 											<td>{{ $factura->fecha }}</td>
 											<td>{{ $factura->total }}</td>
-											<td>{{ $factura->impuesto }}</td>
-											<td>{{ $factura->descuento }}</td>
-											<td>{{ $factura->subtotal }}</td>
+											<td>{{ $factura->tipo }}</td>
 											<td>{{ $factura->nota }}</td>
-											<td>{{ $factura->clienteID }}</td>
-											<td>{{ $factura->usuarioID }}</td>
+											<td>{{ $factura->cliente->nombre }}</td>
+											<td>{{ $factura->user->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('facturas.destroy',$factura->id) }}" method="POST">

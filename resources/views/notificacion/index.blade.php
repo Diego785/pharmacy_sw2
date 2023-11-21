@@ -39,8 +39,8 @@
 										<th>Encabezado</th>
 										<th>Mensaje</th>
 										<th>Fecha Hora</th>
-										<th>Pedido Productoid</th>
-										<th>Usuarioid</th>
+										<th>Pedido</th>
+										<th>Usuario</th>
 
                                         <th></th>
                                     </tr>
@@ -53,8 +53,8 @@
 											<td>{{ $notificacion->encabezado }}</td>
 											<td>{{ $notificacion->mensaje }}</td>
 											<td>{{ $notificacion->fecha_hora }}</td>
-											<td>{{ $notificacion->pedido_ProductoID }}</td>
-											<td>{{ $notificacion->usuarioID }}</td>
+											<td>{{ $notificacion->pedido_Producto->fecha_pedido }}</td>
+											<td>{{ $notificacion->user->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('notificacions.destroy',$notificacion->id) }}" method="POST">

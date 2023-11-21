@@ -45,7 +45,7 @@
 										<th>Adicional</th>
 										<th>Fecha Vencimiento</th>
 										<th>Existencia Minimo</th>
-										<th>Categoriaid</th>
+										<th>Categoria</th>
 
                                         <th></th>
                                     </tr>
