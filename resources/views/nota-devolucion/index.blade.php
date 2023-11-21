@@ -38,7 +38,7 @@
                                         
 										<th>Motivo</th>
 										<th>Fecha Dev</th>
-										<th>Facturaid</th>
+
 
                                         <th></th>
                                     </tr>
@@ -50,7 +50,7 @@
                                             
 											<td>{{ $notaDevolucion->motivo }}</td>
 											<td>{{ $notaDevolucion->fecha_dev }}</td>
-											<td>{{ $notaDevolucion->facturaID }}</td>
+
 
                                             <td>
                                                 <form action="{{ route('nota-devolucions.destroy',$notaDevolucion->id) }}" method="POST">

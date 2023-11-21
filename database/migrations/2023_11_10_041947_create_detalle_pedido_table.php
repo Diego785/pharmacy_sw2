@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('detalle_pedido', function (Blueprint $table) {
             $table->id();
             $table->integer('cantidad');
-            $table->double('precio');
             $table->unsignedBigInteger('proveedorID')->index('proveedorID');
             $table->unsignedBigInteger('productoID')->index('productoID');
             $table->unsignedBigInteger('pedidoID')->index('pedidoID');

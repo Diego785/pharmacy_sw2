@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property int $cantidad
- * @property float $precio
  * @property int $proveedorID
  * @property int $productoID
  * @property int $pedidoID
@@ -31,7 +30,6 @@ class DetallePedido extends Model
 
 	protected $casts = [
 		'cantidad' => 'int',
-		'precio' => 'float',
 		'proveedorID' => 'int',
 		'productoID' => 'int',
 		'pedidoID' => 'int'
@@ -39,7 +37,6 @@ class DetallePedido extends Model
 
 	protected $fillable = [
 		'cantidad',
-		'precio',
 		'proveedorID',
 		'productoID',
 		'pedidoID'

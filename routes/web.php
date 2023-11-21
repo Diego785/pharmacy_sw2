@@ -15,13 +15,7 @@ use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\PedidoProductoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
-
-
-
-
-
-
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +59,9 @@ Route::resource('nota-bajas', NotaBajaController::class);
 Route::resource('pedido-productos', PedidoProductoController::class);
 Route::resource('notificacions', NotificacionController::class);
 Route::resource('inventarios', InventarioController::class);
+Route::resource('users', UserController::class);
+Route::resource('proveedors', ProveedorController::class);
+
 
 
 

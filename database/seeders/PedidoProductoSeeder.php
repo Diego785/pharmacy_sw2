@@ -3,11 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Imports\DatosPedidosProductosImport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\DatosUsersImport;
 
-
-class UsersSeeder extends Seeder
+class PedidoProductoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,8 +15,8 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $excelFile = storage_path('app/users.xls');
+        $excelFile = storage_path('app/pedido_producto.xls'); 
 
-        Excel::import(new DatosUsersImport, $excelFile);
+        Excel::import(new DatosPedidosProductosImport, $excelFile);
     }
 }

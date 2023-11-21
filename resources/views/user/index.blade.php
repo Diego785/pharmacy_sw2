@@ -38,12 +38,10 @@
                                         
 										<th>Name</th>
 										<th>Email</th>
-										<th>Two Factor Secret</th>
-										<th>Two Factor Recovery Codes</th>
-										<th>Two Factor Confirmed At</th>
+	
 										<th>Fecha Nac</th>
 										<th>Ci</th>
-										<th>Current Team Id</th>
+
 										<th>Profile Photo Path</th>
 
                                         <th></th>
@@ -56,12 +54,9 @@
                                             
 											<td>{{ $user->name }}</td>
 											<td>{{ $user->email }}</td>
-											<td>{{ $user->two_factor_secret }}</td>
-											<td>{{ $user->two_factor_recovery_codes }}</td>
-											<td>{{ $user->two_factor_confirmed_at }}</td>
 											<td>{{ $user->fecha_nac }}</td>
 											<td>{{ $user->ci }}</td>
-											<td>{{ $user->current_team_id }}</td>
+
 											<td>{{ $user->profile_photo_path }}</td>
 
                                             <td>

@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Imports\DatosNotaDevImport;
 use Illuminate\Database\Seeder;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\DatosUsersImport;
 
-
-class UsersSeeder extends Seeder
+class NotaDevSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,8 +15,8 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $excelFile = storage_path('app/users.xls');
+        $excelFile = storage_path('app/nota_devolucions.xls'); 
 
-        Excel::import(new DatosUsersImport, $excelFile);
+        Excel::import(new DatosNotaDevImport, $excelFile);
     }
 }

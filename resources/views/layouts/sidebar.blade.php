@@ -32,7 +32,37 @@
 
                     <span class="mx-3">Dashboard</span>
                 </a>
+<!----------------------------------------------------->
+<ul class="flex flex-col mt-4 space-x-6 text-sm font-medium lg:flex-row xl:space-x-8 lg:mt-0">
+                  
+                  <!---->
+                  <li x-data="{ subMenuOpen: false }">
+                      <a @click="subMenuOpen = !subMenuOpen"
+                          class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+                          href="#">
+                          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z">
+                              </path>
+                          </svg>
 
+                          <span class="mx-3">usuarios</span>
+                      </a>
+
+                      <!-- Submenu -->
+                      <ul x-show="subMenuOpen" class="ml-4 mt-2 space-y-2 text-sm font-medium text-gray-100">
+                            <li>
+                                <a href="{{ URL::to('users') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
+                                    
+
+                                 Usuarios</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL::to('roles') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
+                                    Roles</a>
+                            </li>
+                        </ul>
                 <ul class="flex flex-col mt-4 space-x-6 text-sm font-medium lg:flex-row xl:space-x-8 lg:mt-0">
                 <!------------------>    
                 <li x-data="{ subMenuOpen: false }">
@@ -50,6 +80,7 @@
                         </a>
 
                         <!-- Submenu -->
+                        
                         <ul x-show="subMenuOpen" class="ml-4 mt-2 space-y-2 text-sm font-medium text-gray-100">
                             <li>
                                 <a href="{{ URL::to('clientes') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
@@ -61,6 +92,7 @@
                                 <a href="{{ URL::to('facturas') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
                                     Facturas</a>
                             </li>
+                          
                         </ul>
                     </li>
                 </ul>
@@ -93,6 +125,18 @@
                             <li>
                                 <a href="{{ URL::to('inventarios') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
                                     Inventario</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL::to('nota-bajas') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
+                                    Registro de Bajas</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL::to('nota-devolucions') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
+                                    Registro de Devoluciones</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL::to('proveedors') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
+                                    Proveedores</a>
                             </li>
                         </ul>
                     </li>
@@ -141,18 +185,18 @@
                                 </path>
                             </svg>
 
-                            <span class="mx-3">Otros</span>
+                            <span class="mx-3">Notificaciones</span>
                         </a>
 
                         <!-- Submenu -->
                         <ul x-show="subMenuOpen" class="ml-4 mt-2 space-y-2 text-sm font-medium text-gray-100">
-                            <li>
-                                <a href="#" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
-                                    Subitem 1</a>
+                        <li>
+                                <a href="{{ URL::to('notificacions') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
+                                    Notificaciones</a>
                             </li>
                             <li>
-                                <a href="#" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
-                                    Subitem 2</a>
+                                <a href="{{ URL::to('pedido-productos') }}" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"> 
+                                    Pedidos</a>
                             </li>
                         </ul>
                     </li>

@@ -19,12 +19,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class NotaDevolucion extends Model
 {
+
+    protected $table = 'nota_devolucion';
+    public $timestamps = false;
     
-    static $rules = [
-		'motivo' => 'required',
-		'fecha_dev' => 'required',
-		'facturaID' => 'required',
-    ];
+    protected $casts = [
+		'fecha_dev' => 'datetime'
+	];
 
     protected $perPage = 20;
 

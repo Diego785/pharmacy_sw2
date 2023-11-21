@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $productoID
  * @property int $notadevID
  * 
- * @property NotaDevolucion $nota_devolucion
+ * @property NotaDevolucion $nota_devolucions
  * @property Producto $producto
  *
  * @package App\Models
@@ -40,7 +40,7 @@ class DetalleNotaDev extends Model
 		'notadevID'
 	];
 
-	public function nota_devolucion()
+	public function nota_devolucions()
 	{
 		return $this->belongsTo(NotaDevolucion::class, 'notadevID');
 	}

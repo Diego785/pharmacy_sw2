@@ -25,6 +25,12 @@ class DatabaseSeeder extends Seeder
             FacturasSeeder::class,
             DetFacturasSeeder::class,
             NotaBajaSeeder::class,
+            DetNotaBajaSeeder::class,
+            NotaDevSeeder::class,
+            DetNotaDevSeeder::class,
+            PedidoProductoSeeder::class,
+            NotificacionSeeder::class,
+            DetPedidoSeeder::class,
         ]);
     }
 }

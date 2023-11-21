@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Cliente $cliente
  * @property User $user
  * @property DetalleFactura $detalle_factura
- * @property Collection|NotaDevolucion[] $nota_devolucions
+ * @property Collection|NotaDevolucion[] $nota_devolucion
  *
  * @package App\Models
  */
@@ -67,7 +67,7 @@ class Factura extends Model
 		return $this->hasOne(DetalleFactura::class, 'facturaID');
 	}
 
-	public function nota_devolucions()
+	public function nota_devolucion()
 	{
 		return $this->hasMany(NotaDevolucion::class, 'facturaID');
 	}
