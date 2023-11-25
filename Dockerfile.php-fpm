@@ -4,6 +4,10 @@ FROM php:7.4-fpm
 RUN apt-get update && apt-get install -y libpq-dev libzip-dev libgd-dev \
     && docker-php-ext-install pdo pdo_mysql bcmath zip gd
 
+# Install Node.js and npm
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt-get install -y nodejs
+
 # Set the memory limit for PHP (adjust as needed)
 RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
