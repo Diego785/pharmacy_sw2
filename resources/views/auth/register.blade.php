@@ -13,6 +13,14 @@
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
+            <div>
+                <x-jet-label for="fecha_nac" value="{{ __('fecha_nac') }}" />
+                <x-jet-input id="fecha_nac" class="block mt-1 w-full" type="date" name="fecha_nac" :value="old('fecha_nac')" required autofocus autocomplete="fecha_nac" />
+            </div>
+            <div>
+                <x-jet-label for="ci" value="{{ __('CI') }}" />
+                <x-jet-input id="ci" class="block mt-1 w-full" type="text" name="ci" :value="old('ci')" required autofocus autocomplete="ci" />
+            </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
