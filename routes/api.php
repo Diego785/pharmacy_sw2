@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ProductosController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VentasController;
 use Illuminate\Http\Request;
@@ -24,6 +25,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/total-ventas', [VentasController::class, 'calcularTotalVentas'])->name('total');
 Route::get('/crecimiento', [VentasController::class, 'calculateOverallGrowth'])->name('crecimiento');
 Route::get('/count-ventas', [VentasController::class, 'countVentas'])->name('count-ventas');
+Route::get('/get-list', [VentasController::class, 'getListFacturas'])->name('get-list-facturas');
 
 //USERS
 Route::get('/new-users', [UserController::class, 'newUsers'])->name('newusers');
+
+//PRODUCTOS
+Route::get('/stock-product', [ProductosController::class, 'getStockByProduct'])->name('products');

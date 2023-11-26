@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Factura;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +26,18 @@ class VentasController extends Controller
         return response()->json(['count_ventas' => $totalVentas]);
     }
 
+    public function getListFacturas()
+    {
+        // Assuming "Factura" is the model representing the "factura" table
+        $facturas = Factura::select('fecha', 'total')
+            ->orderBy('fecha')
+            ->get();
+
+      
+        // If you want to return the result as JSON
+        return response()->json(['facturas' => $facturas]);
+    }
+
     public function calculateOverallGrowth()
     {
         $porcentajesPorFecha = Factura::selectRaw('fecha, SUM(total) as total_sum')
@@ -42,10 +56,10 @@ class VentasController extends Controller
                     : 0;
                 $anteriorTotal = $item['total_sum'];
             });
-    
+
         // Calcular el porcentaje de crecimiento total
         $porcentajeTotal = (($porcentajesPorFecha->last()['total_sum'] - $porcentajesPorFecha->first()['total_sum']) / abs($porcentajesPorFecha->first()['total_sum'])) * 100;
-    
+
         return response()->json(['overall_growth_percentage' => $porcentajeTotal]);
     }
 }
