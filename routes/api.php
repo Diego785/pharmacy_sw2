@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\ProductosController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VentasController;
@@ -32,3 +33,23 @@ Route::get('/new-users', [UserController::class, 'newUsers'])->name('newusers');
 
 //PRODUCTOS
 Route::get('/stock-product', [ProductosController::class, 'getStockByProduct'])->name('products');
+
+
+// ALL THE TABLES
+Route::get('/factura', [GeneralController::class, 'getFacturas'])->name('factura');
+Route::get('/detalle-factura', [GeneralController::class, 'getDetalleFacturas'])->name('detalle.factura');
+Route::get('/clients', [GeneralController::class, 'getClientes'])->name('cliente');
+Route::get('/inventario', [GeneralController::class, 'getInventario'])->name('inventario');
+Route::get('/detalle-inventario', [GeneralController::class, 'getDetalleInventario'])->name('detalle.inventario');
+Route::get('/nota-dev', [GeneralController::class, 'getNotaDev'])->name('nota-dev');
+Route::get('/nota-baja', [GeneralController::class, 'getNotaBaja'])->name('nota-baja');
+Route::get('/detalle-nota-dev', [GeneralController::class, 'getDetalleNotaDev'])->name('detalle.nota-dev');
+Route::get('/detalle-nota-baja', [GeneralController::class, 'getDetalleNotaBaja'])->name('detalle.nota-baja');
+Route::get('/producto', [GeneralController::class, 'getProducto'])->name('producto');
+Route::get('/pedido', [GeneralController::class, 'getPedido'])->name('pedido');
+Route::get('/detallle-pedido', [GeneralController::class, 'getDetallePedido'])->name('detalle.pedido');
+Route::get('/proveedor', [GeneralController::class, 'getProveedor'])->name('proveedor');
+
+
+
+
