@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('nombre_producto') }}
             {{ Form::text('nombre_producto', $producto->nombre_producto, ['class' => 'form-control' . ($errors->has('nombre_producto') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Producto']) }}
@@ -48,10 +48,10 @@
             {!! $errors->first('existencia_minimo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-    {{ Form::label('categoriaID', 'Categoria') }}
-    {{ Form::select('categoriaID', $categorias, $producto->categoriaID, ['class' => 'form-control' . ($errors->has('categoriaID') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona una categoría']) }}
-    {!! $errors->first('categoriaID', '<div class="invalid-feedback">:message</div>') !!}
-</div>
+            {{ Form::label('categoriaID', 'Categoria') }}
+            {{ Form::select('categoriaID', $categorias, $producto->categoriaID, ['class' => 'form-control' . ($errors->has('categoriaID') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona una categoría']) }}
+            {!! $errors->first('categoriaID', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
 
     </div>

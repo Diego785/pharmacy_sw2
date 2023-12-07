@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Categorium;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redirect;
 
 /**
  * Class ProductoController
@@ -22,7 +24,7 @@ class ProductoController extends Controller
         $productos = Producto::paginate();
         $categorias = Categorium::pluck('nombre', 'id');
 
-        return view('producto.index', compact('productos','categorias'))
+        return view('producto.index', compact('productos', 'categorias'))
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
 
@@ -34,7 +36,8 @@ class ProductoController extends Controller
     public function create()
     {
         $producto = new Producto();
-        return view('producto.create', compact('producto'));
+        $categorias = Categorium::pluck('nombre', 'id');
+        return view('producto.create', compact('producto', 'categorias'));
     }
 
     /**
@@ -45,7 +48,6 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //request()->validate(Producto::$rules);
 
         $producto = Producto::create($request->all());
 
@@ -75,8 +77,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
-        $categorias = Categorium::pluck('nombre', 'id'); 
-        return view('producto.edit', compact('producto','categorias'));
+        $categorias = Categorium::pluck('nombre', 'id');
+        return view('producto.edit', compact('producto', 'categorias'));
     }
 
     /**
@@ -107,5 +109,22 @@ class ProductoController extends Controller
 
         return redirect()->route('productos.index')
             ->with('success', 'Producto deleted successfully');
+    }
+
+
+    public function findAnomaly()
+    {
+        $currentStock = Producto::orderBy('id')->pluck('cantidad_stock', 'id');
+
+        $threshold = $currentStock->avg();
+
+        foreach ($currentStock as $productId => $stock) {
+
+            if ($stock > $threshold + 700 || $stock < $threshold - 700) {
+                $productName = Producto::find($productId)->nombre_producto;
+                return Redirect::route('dashboard-error', ['productName' => $productName]);
+            }
+        }
+        return Redirect::route('dashboard-success');
     }
 }
