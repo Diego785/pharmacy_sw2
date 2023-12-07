@@ -31,7 +31,6 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    notify()->success('Welcome to Laravel Notify ⚡️');
     return view('welcome');
 });
 

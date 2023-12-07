@@ -23,6 +23,10 @@ services:
       MYSQL_DATABASE: pharmacy_sw2
       MYSQL_USER: diegohv
       MYSQL_PASSWORD: 1234
+    olumes:
+      - ./custom.cnf:/etc/mysql/conf.d/custom.cnf
+    ports:
+      - "3306:3306"
     networks:
       - pharmacy_sw2
 

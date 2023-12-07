@@ -422,7 +422,7 @@
 
 <body class="antialiased">
     <div
-        class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        class="relative flex items-top justify-center min-h-screen bg-gray-900 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
@@ -440,18 +440,15 @@
         @endif
 
 
-        <x-notify::notify />
 
 
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3 text-center" style=" color:#cbd5e0;">
-                    <h1 class="mb-4">Bienvenido al Sistema de Inventario de Farmacia</h1>
-                    <p class="lead">Gestiona fácilmente tu inventario de productos farmacéuticos con nuestro sistema.
+                    <h1 class="mb-4">Bienvenido al Sistema de Gestión de Inventario de My Analysis Center...</h1>
                     </p>
-                    <iframe src="https://giphy.com/embed/l0MYAUGoJSk7SZwkg" width="480" height="270"
+                    <iframe src="https://media.tenor.com/lvLaG5hPCncAAAAd/data-analysis.gif" width="680" height="500"
                         frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-                    <p><a href="https://giphy.com/gifs/southparkgifs-l0MYAUGoJSk7SZwkg">via GIPHY</a></p>
                 </div>
             </div>
         </div>
