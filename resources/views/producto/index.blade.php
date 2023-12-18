@@ -23,6 +23,12 @@
                                 </a>
                             </div>
                             <div class="float-right">
+                                <a href="{{ route('report-products') }}" class="btn btn-success btn-sm float-right"
+                                    data-placement="left">
+                                    {{ __('Reporte') }}
+                                </a>
+                            </div>
+                            <div class="float-right">
                                 <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
                                     {{ __('Crear Nuevo') }}

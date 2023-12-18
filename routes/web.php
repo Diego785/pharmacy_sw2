@@ -83,3 +83,5 @@ Route::resource('proveedors', ProveedorController::class);
 
 
 Route::get('/find-anomaly', [ProductoController::class, 'findAnomaly'])->name('find-anomaly');
+Route::get('/report-products', [ProductoController::class, 'report'])->name('report-products');
+Route::get('/report-inventary', [InventarioController::class, 'report'])->name('report-inventary');

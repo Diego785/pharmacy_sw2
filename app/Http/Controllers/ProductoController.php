@@ -127,4 +127,19 @@ class ProductoController extends Controller
         }
         return Redirect::route('dashboard-success');
     }
+
+    public function report()
+    {
+        // Obtener datos necesarios
+        $products = Producto::take(50)->get();
+
+
+        // $pdf = app('dompdf.wrapper');
+        // $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
+        // return $pdf->download('Lista de alertas: ' . now() . '.pdf');
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('reports.productos.productos-report', compact('products'));
+        return $pdf->download('Lista de productos: ' . now() . '.pdf');
+        // return view('my_views.testing.testing-pdfs', compact('alerts'));
+    }
 }

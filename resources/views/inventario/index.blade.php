@@ -15,7 +15,12 @@
                             <span id="card_title">
                                 {{ __('Inventario') }}
                             </span>
-
+                            <div class="float-right">
+                                <a href="{{ route('report-inventary') }}" class="btn btn-success btn-sm float-right"
+                                    data-placement="left">
+                                    {{ __('Reporte') }}
+                                </a>
+                            </div>
                              <div class="float-right">
                                 <a href="{{ route('inventarios.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}

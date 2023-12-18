@@ -142,7 +142,7 @@
                     </li>
                     <!------>
                     </ul>
-                <ul class="flex flex-col mt-4 space-x-6 text-sm font-medium lg:flex-row xl:space-x-8 lg:mt-0">
+                {{-- <ul class="flex flex-col mt-4 space-x-6 text-sm font-medium lg:flex-row xl:space-x-8 lg:mt-0">
                   
                     <li x-data="{ subMenuOpen: false }">
                         <a @click="subMenuOpen = !subMenuOpen"
@@ -168,7 +168,7 @@
                                 <a href="#" class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
                                     Subitem 2</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </li>
                     </ul>
                 <ul class="flex flex-col mt-4 space-x-6 text-sm font-medium lg:flex-row xl:space-x-8 lg:mt-0">

@@ -106,4 +106,19 @@ class InventarioController extends Controller
         return redirect()->route('inventarios.index')
             ->with('success', 'Inventario deleted successfully');
     }
+
+    public function report()
+    {
+        // Obtener datos necesarios
+        $inventarios = Inventario::take(50)->get();
+
+
+        // $pdf = app('dompdf.wrapper');
+        // $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
+        // return $pdf->download('Lista de alertas: ' . now() . '.pdf');
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('reports.inventary.inventary-report', compact('inventarios'));
+        return $pdf->download('Inventario: ' . now() . '.pdf');
+        // return view('my_views.testing.testing-pdfs', compact('alerts'));
+    }
 }
