@@ -39,18 +39,16 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/',  [ProductoController::class, 'index'])->name('dashboard');
 });
 
 Route::get('/dashboard-error/{productName}', function ($productName) {
     smilify('error', "¡Ocurrió una anomalía en la cantidad de stock del producto $productName en tu inventario!");
-    return view('dashboard');
+    Route::get('/',  [ProductoController::class, 'index'])->name('inicio-show-error');
 })->name('dashboard-error');
 Route::get('/dashboard-success', function () {
     smilify('success', '¡Sin anomalías encontradas!');
-    return view('dashboard');
+    Route::get('/',  [ProductoController::class, 'index'])->name('inicio-show-success');
 })->name('dashboard-success');
 
 
